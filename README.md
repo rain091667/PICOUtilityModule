@@ -3,7 +3,7 @@
     PicoScope Device (Pico Technology) C# Module
 	
 ## PICOUtilityModule DEMO
-<table style="width:100%" align="center">
+<table align="center">
   <tr>
     <th>PICO Device</th>
     <th>PICO Device</th> 
