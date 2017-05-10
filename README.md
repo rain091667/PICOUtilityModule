@@ -17,7 +17,4 @@
 </table>
 
 ## PICOUtilityModule DEMO
-<<<<<<< HEAD
 ![](https://raw.githubusercontent.com/rain091667/PICOUtilityModule/master/ScreenDemo/SampleScreen.png)
-=======
->>>>>>> origin/master
