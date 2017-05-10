@@ -1,0 +1,816 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>PICOUtilityModule</name>
+    </assembly>
+    <members>
+        <member name="T:PICOUtilityModule.DataCaptureInterface">
+            <summary>
+            Interface: DataCaptureInterface
+            <para>Data capture interface.</para>
+            <para>Receive error code and raw data.</para>
+            </summary>
+        </member>
+        <member name="M:PICOUtilityModule.DataCaptureInterface.OnCaptureReceive(System.Int16[],System.Int16[])">
+            <summary>
+            Method: OnCaptureReceive
+            <para>Receive and listen raw data arrays.</para>
+            </summary>
+            <param name="MaxRawData">Max value raw data array.</param>
+            <param name="MinRawData">Min value raw data array.</param>
+        </member>
+        <member name="M:PICOUtilityModule.DataCaptureInterface.OnCaptureError(System.UInt32)">
+            <summary>
+            Method: OnCaptureError
+            <para>Receive and listen error code.</para>
+            </summary>
+            <param name="DeviceErrorCode">Error code.</param>
+        </member>
+        <member name="T:PICOUtilityModule.DataCallBackCaptureInterface">
+            <summary>
+            Interface: DataCaptureInterface
+            <para>Data capture interface.</para>
+            <para>Receive error code and raw data.</para>
+            </summary>
+        </member>
+        <member name="M:PICOUtilityModule.DataCallBackCaptureInterface.OnCaptureReceive(PICOUtilityModule.RawDataCallback)">
+            <summary>
+            Method: OnCaptureReceive
+            <para>Receive and listen raw data arrays.</para>
+            </summary>
+        </member>
+        <member name="M:PICOUtilityModule.DataCallBackCaptureInterface.OnCaptureError(System.UInt32)">
+            <summary>
+            Method: OnCaptureError
+            <para>Receive and listen error code.</para>
+            </summary>
+            <param name="DeviceErrorCode">Error code.</param>
+        </member>
+        <member name="T:PICOUtilityModule.RawDataCallback">
+            <summary>
+            Raw data callback.
+            </summary>
+        </member>
+        <member name="P:PICOUtilityModule.RawDataCallback.ChannelA_RawData_Max">
+            <summary>
+            ChannelA_RawData_Max.
+            </summary>
+        </member>
+        <member name="P:PICOUtilityModule.RawDataCallback.ChannelA_RawData_Min">
+            <summary>
+            ChannelA_RawData_Min.
+            </summary>
+        </member>
+        <member name="P:PICOUtilityModule.RawDataCallback.ChannelB_RawData_Max">
+            <summary>
+            ChannelB_RawData_Max.
+            </summary>
+        </member>
+        <member name="P:PICOUtilityModule.RawDataCallback.ChannelB_RawData_Min">
+            <summary>
+            ChannelB_RawData_Min.
+            </summary>
+        </member>
+        <member name="P:PICOUtilityModule.RawDataCallback.ChannelC_RawData_Max">
+            <summary>
+            ChannelC_RawData_Max.
+            </summary>
+        </member>
+        <member name="P:PICOUtilityModule.RawDataCallback.ChannelC_RawData_Min">
+            <summary>
+            ChannelC_RawData_Min.
+            </summary>
+        </member>
+        <member name="P:PICOUtilityModule.RawDataCallback.ChannelD_RawData_Max">
+            <summary>
+            ChannelD_RawData_Max.
+            </summary>
+        </member>
+        <member name="P:PICOUtilityModule.RawDataCallback.ChannelD_RawData_Min">
+            <summary>
+            ChannelD_RawData_Min.
+            </summary>
+        </member>
+        <member name="M:PICOUtilityModule.RawDataCallback.#ctor">
+            <summary>
+            init.
+            </summary>
+        </member>
+        <member name="T:PICOUtilityModule.PicoDeviceChannel">
+            <summary>
+            Interface: PicoDeviceChannel
+            <para>Channel specification.</para>
+            </summary>
+        </member>
+        <member name="P:PICOUtilityModule.PicoDeviceChannel.ChannelVoltageRange">
+            <summary>
+            Variable: ChannelVoltageRange
+            <para>Channel voltage range.</para>
+            </summary>
+        </member>
+        <member name="P:PICOUtilityModule.PicoDeviceChannel.ChannelName">
+            <summary>
+            Variable: ChannelName
+            <para>Channel Name.</para>
+            </summary>
+        </member>
+        <member name="P:PICOUtilityModule.PicoDeviceChannel.CouplingValue">
+            <summary>
+            Variable: CouplingValue
+            <para>Channel coupling value.</para>
+            </summary>
+        </member>
+        <member name="P:PICOUtilityModule.PicoDeviceChannel.DeviceResolution">
+            <summary>
+            Variable: DeviceResolution
+            <para>Channel resolution value.</para>
+            </summary>
+        </member>
+        <member name="P:PICOUtilityModule.PicoDeviceChannel.OffsetValue">
+            <summary>
+            Variable: OffsetValue
+            <para>Channel offset value.</para>
+            </summary>
+        </member>
+        <member name="P:PICOUtilityModule.PicoDeviceChannel.DeviceCapable">
+            <summary>
+            Variable: DeviceCapable
+            <para>Channel capable.</para>
+            </summary>
+        </member>
+        <member name="P:PICOUtilityModule.PicoDeviceChannel.ChannelEnabled">
+            <summary>
+            Variable: ChannelEnabled
+            <para>Channel enabled.</para>
+            </summary>
+        </member>
+        <member name="M:PICOUtilityModule.PicoDeviceChannel.setChannelEnable">
+            <summary>
+            Method: setChannelEnable
+            <para>Enable channel. (Default: disable)</para>
+            </summary>
+            <returns>Success or not.</returns>
+        </member>
+        <member name="M:PICOUtilityModule.PicoDeviceChannel.setChannelDisable">
+            <summary>
+            Method: setChannelDisable
+            <para>Disable channel. (Default: disable)</para>
+            </summary>
+            <returns>Success or not.</returns>
+        </member>
+        <member name="M:PICOUtilityModule.PicoDeviceChannel.setChannelAction(PICOUtilityModule.Coupling,PICOUtilityModule.Range,System.Single)">
+            <summary>
+            Method: setChannelAction
+            <para>Change channel actions.</para>
+            </summary>
+            <param name="CouplingValue">Coupling value.</param>
+            <param name="ChannelRange">Channel range.</param>
+            <param name="OffsetValue">Offset value.</param>
+            <returns>Success or not.</returns>
+        </member>
+        <member name="T:PICOUtilityModule.PICOUtilityManager">
+            <summary>
+            Class: PICOUtilityManager
+            <para>5000a series PICO device extended library.</para>
+            </summary>
+        </member>
+        <member name="P:PICOUtilityModule.PICOUtilityManager.DebugMode">
+            <summary>
+            variable: DebugMode
+            <para>Display debug message or not.</para>
+            </summary>
+        </member>
+        <member name="F:PICOUtilityModule.PICOUtilityManager.ChannelA">
+            <summary>
+            interface: ChannelA
+            <para>PICO device channelA.</para>
+            </summary>
+        </member>
+        <member name="F:PICOUtilityModule.PICOUtilityManager.ChannelB">
+            <summary>
+            interface: ChannelB
+            <para>PICO device channelB.</para>
+            </summary>
+        </member>
+        <member name="F:PICOUtilityModule.PICOUtilityManager.ChannelC">
+            <summary>
+            interface: ChannelC
+            <para>PICO device channelC.</para>
+            </summary>
+        </member>
+        <member name="F:PICOUtilityModule.PICOUtilityManager.ChannelD">
+            <summary>
+            interface: ChannelD
+            <para>PICO device channelD.</para>
+            </summary>
+        </member>
+        <member name="M:PICOUtilityModule.PICOUtilityManager.#ctor">
+            <summary>
+            Constructor: PICOUtilityManager
+            </summary>
+        </member>
+        <member name="M:PICOUtilityModule.PICOUtilityManager.OpenPicoDevice">
+            <summary>
+            Method: OpenPicoDevice
+            <para>Open PICO hardware device.</para>
+            </summary>
+            <returns>Success or not.</returns>
+        </member>
+        <member name="M:PICOUtilityModule.PICOUtilityManager.InitDefaultSettings">
+            <summary>
+            Method: InitDefaultSettings
+            <para>initialize default variables.</para>
+            </summary>
+            <returns>Success or not.</returns>
+        </member>
+        <member name="M:PICOUtilityModule.PICOUtilityManager.setChannelBuffers(System.UInt32)">
+            <summary>
+            Method: setChannelBuffers
+            <para>Change channel buffer size.</para>
+            <param name="size">buffer size. (Default: 1024 * 100)</param>
+            </summary>
+            <returns>Success or not.</returns>
+        </member>
+        <member name="M:PICOUtilityModule.PICOUtilityManager.StartRunStreaming(System.Boolean)">
+            <summary>
+            Method: StartRunStreaming
+            <para>Start streaming capture.</para>
+            </summary>
+            <param name="BlockStop">Auto stop or not.</param>
+            <returns>Success or not.</returns>
+        </member>
+        <member name="M:PICOUtilityModule.PICOUtilityManager.StopRunStreaming">
+            <summary>
+            Method: StopRunStreaming
+            <para>Stop streaming capture.</para>
+            </summary>
+            <returns>Success or not.</returns>
+        </member>
+        <member name="M:PICOUtilityModule.PICOUtilityManager.addChannelARawDataListener(PICOUtilityModule.DataCaptureInterface)">
+            <summary>
+            Method: addChannelARawDataListener
+            <para>Receive and listen raw data events.</para>
+            <para>Listen raw data events.</para>
+            </summary>
+            <param name="listener">Add target Listener.</param>
+            <example>
+            Inherit DataCaptureInterface and pass instance to this method.
+            MyManager.addChannelARawDataListener(DataCaptureInterfaceObj);
+            </example>
+        </member>
+        <member name="M:PICOUtilityModule.PICOUtilityManager.addChannelBRawDataListener(PICOUtilityModule.DataCaptureInterface)">
+            <summary>
+            Method: addChannelBRawDataListener
+            <para>Receive and listen raw data events.</para>
+            <para>Listen raw data events.</para>
+            </summary>
+            <param name="listener">Add target Listener.</param>
+            <example>
+            Inherit DataCaptureInterface and pass instance to this method.
+            MyManager.addChannelBRawDataListener(DataCaptureInterfaceObj);
+            </example>
+        </member>
+        <member name="M:PICOUtilityModule.PICOUtilityManager.addChannelCRawDataListener(PICOUtilityModule.DataCaptureInterface)">
+            <summary>
+            Method: addChannelCRawDataListener
+            <para>Receive and listen raw data events.</para>
+            <para>Listen raw data events.</para>
+            </summary>
+            <param name="listener">Add target Listener.</param>
+            <example>
+            Inherit DataCaptureInterface and pass instance to this method.
+            MyManager.addChannelCRawDataListener(DataCaptureInterfaceObj);
+            </example>
+        </member>
+        <member name="M:PICOUtilityModule.PICOUtilityManager.addChannelDRawDataListener(PICOUtilityModule.DataCaptureInterface)">
+            <summary>
+            Method: addChannelDRawDataListener
+            <para>Receive and listen raw data events.</para>
+            <para>Listen raw data events.</para>
+            </summary>
+            <param name="listener">Add target Listener.</param>
+            <example>
+            Inherit DataCaptureInterface and pass instance to this method.
+            MyManager.addChannelDRawDataListener(DataCaptureInterfaceObj);
+            </example>
+        </member>
+        <member name="M:PICOUtilityModule.PICOUtilityManager.addChannelRawDataCallBackListener(PICOUtilityModule.DataCallBackCaptureInterface)">
+            <summary>
+            Method: addChannelRawDataCallBackListener
+            <para>Receive and listen raw data events.</para>
+            <para>Listen raw data events.</para>
+            </summary>
+            <param name="listener">Add target Listener.</param>
+            <example>
+            Inherit DataCaptureInterface and pass instance to this method.
+            MyManager.addChannelRawDataCallBackListener(DataCaptureInterfaceObj);
+            </example>
+        </member>
+        <member name="M:PICOUtilityModule.PICOUtilityManager.removeChannelARawDataListener(PICOUtilityModule.DataCaptureInterface)">
+            <summary>
+            Method: removeChannelARawDataListener
+            <para>Receive and listen raw data events.</para>
+            </summary>
+            <param name="listener">Remove target listener.</param>
+            <example>
+            Inherit DataCaptureInterface and pass instance to this method.
+            MyManager.removeChannelARawDataListener(DataCaptureInterfaceObj);
+            </example>
+        </member>
+        <member name="M:PICOUtilityModule.PICOUtilityManager.removeChannelBRawDataListener(PICOUtilityModule.DataCaptureInterface)">
+            <summary>
+            Method: removeChannelBRawDataListener
+            <para>Receive and listen raw data events.</para>
+            </summary>
+            <param name="listener">Remove target listener.</param>
+            <example>
+            Inherit DataCaptureInterface and pass instance to this method.
+            MyManager.removeChannelBRawDataListener(DataCaptureInterfaceObj);
+            </example>
+        </member>
+        <member name="M:PICOUtilityModule.PICOUtilityManager.removeChannelCRawDataListener(PICOUtilityModule.DataCaptureInterface)">
+            <summary>
+            Method: removeChannelCRawDataListener
+            <para>Receive and listen raw data events.</para>
+            </summary>
+            <param name="listener">Remove target listener.</param>
+            <example>
+            Inherit DataCaptureInterface and pass instance to this method.
+            MyManager.removeChannelCRawDataListener(DataCaptureInterfaceObj);
+            </example>
+        </member>
+        <member name="M:PICOUtilityModule.PICOUtilityManager.removeChannelDRawDataListener(PICOUtilityModule.DataCaptureInterface)">
+            <summary>
+            Method: removeChannelDRawDataListener
+            <para>Receive and listen raw data events.</para>
+            </summary>
+            <param name="listener">Remove target listener.</param>
+            <example>
+            Inherit DataCaptureInterface and pass instance to this method.
+            MyManager.removeChannelDRawDataListener(DataCaptureInterfaceObj);
+            </example>
+        </member>
+        <member name="M:PICOUtilityModule.PICOUtilityManager.removeChannelRawDataCallBackListener(PICOUtilityModule.DataCallBackCaptureInterface)">
+            <summary>
+            Method: removeChannelRawDataCallBackListener
+            <para>Receive and listen raw data events.</para>
+            </summary>
+            <param name="listener">Remove target listener.</param>
+            <example>
+            Inherit DataCaptureInterface and pass instance to this method.
+            MyManager.removeChannelRawDataCallBackListener(DataCaptureInterfaceObj);
+            </example>
+        </member>
+        <member name="M:PICOUtilityModule.PICOUtilityManager.addCaptureErrorListener(PICOUtilityModule.DataCaptureInterface)">
+            <summary>
+            Method: addCaptureErrorListener
+            <para>Receive and listen error code during streaming.</para>
+            </summary>
+            <param name="listener">Add target Listener.</param>
+            <example>
+            Inherit DataCaptureInterface and pass instance to this method.
+            MyManager.addCaptureErrorListener(DataCaptureInterfaceObj);
+            </example>
+        </member>
+        <member name="M:PICOUtilityModule.PICOUtilityManager.addCaptureErrorListener(PICOUtilityModule.DataCallBackCaptureInterface)">
+            <summary>
+            Method: addCaptureErrorListener
+            <para>Receive and listen error code during streaming.</para>
+            </summary>
+            <param name="listener">Add target Listener.</param>
+            <example>
+            Inherit DataCaptureInterface and pass instance to this method.
+            MyManager.addCaptureErrorListener(DataCaptureInterfaceObj);
+            </example>
+        </member>
+        <member name="M:PICOUtilityModule.PICOUtilityManager.removeCaptureErrorListener(PICOUtilityModule.DataCaptureInterface)">
+            <summary>
+            Method: removeCaptureErrorListener
+            <para>Receive and listen error code during streaming.</para>
+            </summary>
+            <param name="listener">Remove target Listener.</param>
+            <example>
+            Inherit DataCaptureInterface and pass instance to this method.
+            MyManager.removeCaptureErrorListener(DataCaptureInterfaceObj);
+            </example>
+        </member>
+        <member name="M:PICOUtilityModule.PICOUtilityManager.removeCaptureErrorListener(PICOUtilityModule.DataCallBackCaptureInterface)">
+            <summary>
+            Method: removeCaptureErrorListener
+            <para>Receive and listen error code during streaming.</para>
+            </summary>
+            <param name="listener">Remove target Listener.</param>
+            <example>
+            Inherit DataCaptureInterface and pass instance to this method.
+            MyManager.removeCaptureErrorListener(DataCaptureInterfaceObj);
+            </example>
+        </member>
+        <member name="M:PICOUtilityModule.PICOUtilityManager.setDeviceResolution(PICOUtilityModule.DeviceResolution)">
+            <summary>
+            Method: setDeviceResolution
+            <para>Change PICO device Resolution.</para>
+            </summary>
+            <param name="resolution">Device resolution.</param>
+            <returns>Success or not.</returns>
+        </member>
+        <member name="M:PICOUtilityModule.PICOUtilityManager.ClosePicoDevice">
+            <summary>
+            Method: ClosePicoDevice
+            <para>Close PICO hardware device.</para>
+            </summary>
+            <returns>Success or not.</returns>
+        </member>
+        <member name="M:PICOUtilityModule.PICOUtilityManager.setDataCaptureTimeUnits(PICOUtilityModule.ReportedTimeUnits)">
+            <summary>
+            Method: setDataCaptureTimeUnits
+            <para>Change streaming sample interval time unit.</para>
+            </summary>
+            <param name="Units">Time unit.</param>
+        </member>
+        <member name="M:PICOUtilityModule.PICOUtilityManager.setDataCaptureSampleInterval(System.UInt32)">
+            <summary>
+            Method: setDataCaptureSampleInterval
+            <para>Change streaming sample interval value.</para>
+            </summary>
+            <param name="Interval">Interval value.</param>
+        </member>
+        <member name="M:PICOUtilityModule.PICOUtilityManager.setDataCaptureSampleCount(System.UInt32)">
+            <summary>
+            Method: setDataCaptureSampleCount
+            <para>Change streaming sample interval count.</para>
+            </summary>
+            <param name="SampleCount">Sample count.</param>
+        </member>
+        <member name="P:PICOUtilityModule.PICOUtilityManager.DeviceStatus">
+            <summary>
+            Variable: DeviceStatus
+            <para>Pico device status.</para>
+            </summary>
+        </member>
+        <member name="P:PICOUtilityModule.PICOUtilityManager.DevicePowerSupplyStatus">
+            <summary>
+            Variable: DevicePowerSupplyStatus
+            <para>Pico device power status.</para>
+            </summary>
+        </member>
+        <member name="P:PICOUtilityModule.PICOUtilityManager.DeviceResolutionValue">
+            <summary>
+            Variable: DeviceResolutionValue
+            <para>Pico device resolution value.</para>
+            </summary>
+        </member>
+        <member name="P:PICOUtilityModule.PICOUtilityManager.DeviceChannelCountValue">
+            <summary>
+            Variable: DeviceChannelCountValue
+            <para>Pico device channel capable value.</para>
+            </summary>
+        </member>
+        <member name="P:PICOUtilityModule.PICOUtilityManager.DataCaptureTimeUnits">
+            <summary>
+            Variable: DataCaptureTimeUnits
+            <para>Pico device data capture time unit. (Time units)</para>
+            </summary>
+        </member>
+        <member name="P:PICOUtilityModule.PICOUtilityManager.DataCaptureSampleInterval">
+            <summary>
+            Variable: DataCaptureSampleInterval
+            <para>Pico device data capture sample interval value. (Sample interval value)</para>
+            </summary>
+        </member>
+        <member name="P:PICOUtilityModule.PICOUtilityManager.DataCaptureSampleCount">
+            <summary>
+            Variable: DataCaptureSampleCount
+            <para>Pico device data capture sample count. (Sample capture numbers)</para>
+            </summary>
+        </member>
+        <member name="P:PICOUtilityModule.PICOUtilityManager.DeviceMaximumValue">
+            <summary>
+            Variable: DeviceMaximumValue
+            <para>Pico device MaximumValue. (Device Max Value)</para>
+            </summary>
+        </member>
+        <member name="M:PICOUtilityModule.PICOUtilityManager.getDeviceInfo(PICOUtilityModule.PicoDeviceInfo)">
+            <summary>
+            Method: getDeviceInfo
+            <para>Pico device info.</para>
+            </summary>
+            <param name="InfoType">Info type.</param>
+            <returns>Info value.</returns>
+        </member>
+        <member name="T:PICOUtilityModule.RangeInputValue">
+            <summary>
+            Pico RangeInputValue.
+            </summary>
+        </member>
+        <member name="F:PICOUtilityModule.RangeInputValue.Range_10mV">
+            <summary>
+            Range_10mV. Value: 10.
+            </summary>
+        </member>
+        <member name="F:PICOUtilityModule.RangeInputValue.Range_20mV">
+            <summary>
+            Range_20mV. Value: 20.
+            </summary>
+        </member>
+        <member name="F:PICOUtilityModule.RangeInputValue.Range_50mV">
+            <summary>
+            Range_50mV. Value: 50.
+            </summary>
+        </member>
+        <member name="F:PICOUtilityModule.RangeInputValue.Range_100mV">
+            <summary>
+            Range_100mV. Value: 100.
+            </summary>
+        </member>
+        <member name="F:PICOUtilityModule.RangeInputValue.Range_200mV">
+            <summary>
+            Range_200mV. Value: 200.
+            </summary>
+        </member>
+        <member name="F:PICOUtilityModule.RangeInputValue.Range_500mV">
+            <summary>
+            Range_500mV. Value: 500.
+            </summary>
+        </member>
+        <member name="F:PICOUtilityModule.RangeInputValue.Range_1V">
+            <summary>
+            Range_1V. Value: 1000.
+            </summary>
+        </member>
+        <member name="F:PICOUtilityModule.RangeInputValue.Range_2V">
+            <summary>
+            Range_2V. Value: 2000.
+            </summary>
+        </member>
+        <member name="F:PICOUtilityModule.RangeInputValue.Range_5V">
+            <summary>
+            Range_5V. Value: 5000.
+            </summary>
+        </member>
+        <member name="F:PICOUtilityModule.RangeInputValue.Range_10V">
+            <summary>
+            Range_10V. Value: 10000.
+            </summary>
+        </member>
+        <member name="F:PICOUtilityModule.RangeInputValue.Range_20V">
+            <summary>
+            Range_20V. Value: 20000.
+            </summary>
+        </member>
+        <member name="F:PICOUtilityModule.RangeInputValue.Range_50V">
+            <summary>
+            Range_50V. Value: 50000.
+            </summary>
+        </member>
+        <member name="T:PICOUtilityModule.PicoDeviceStatus">
+            <summary>
+            Pico device status.
+            </summary>
+        </member>
+        <member name="F:PICOUtilityModule.PicoDeviceStatus.DeviceOpened">
+            <summary>
+            DeviceOpened.
+            </summary>
+        </member>
+        <member name="F:PICOUtilityModule.PicoDeviceStatus.DeviceStreaming">
+            <summary>
+            DeviceStreaming.
+            </summary>
+        </member>
+        <member name="F:PICOUtilityModule.PicoDeviceStatus.DeviceClosed">
+            <summary>
+            DeviceClosed.
+            </summary>
+        </member>
+        <member name="T:PICOUtilityModule.PicoDevicePower">
+            <summary>
+            Pico device power status.
+            </summary>
+        </member>
+        <member name="F:PICOUtilityModule.PicoDevicePower.PowerSupply">
+            <summary>
+            PowerSupply.
+            </summary>
+        </member>
+        <member name="F:PICOUtilityModule.PicoDevicePower.USBPower">
+            <summary>
+            USBPower.
+            </summary>
+        </member>
+        <member name="T:PICOUtilityModule.DeviceResolution">
+            <summary>
+            Pico device resolution.
+            </summary>
+        </member>
+        <member name="F:PICOUtilityModule.DeviceResolution.PS5000A_DR_8BIT">
+            <summary>
+            Device resolution 8bits.
+            </summary>
+        </member>
+        <member name="F:PICOUtilityModule.DeviceResolution.PS5000A_DR_12BIT">
+            <summary>
+            Device resolution 12bits.
+            </summary>
+        </member>
+        <member name="F:PICOUtilityModule.DeviceResolution.PS5000A_DR_14BIT">
+            <summary>
+            Device resolution 14bits.
+            </summary>
+        </member>
+        <member name="F:PICOUtilityModule.DeviceResolution.PS5000A_DR_15BIT">
+            <summary>
+            Device resolution 15bits.
+            </summary>
+        </member>
+        <member name="F:PICOUtilityModule.DeviceResolution.PS5000A_DR_16BIT">
+            <summary>
+            Device resolution 16bits.
+            </summary>
+        </member>
+        <member name="T:PICOUtilityModule.Range">
+            <summary>
+            Pico device range.
+            </summary>
+        </member>
+        <member name="F:PICOUtilityModule.Range.Range_10mV">
+            <summary>
+            Device range 10mV.
+            </summary>
+        </member>
+        <member name="F:PICOUtilityModule.Range.Range_20mV">
+            <summary>
+            Device range 20mV.
+            </summary>
+        </member>
+        <member name="F:PICOUtilityModule.Range.Range_50mV">
+            <summary>
+            Device range 50mV.
+            </summary>
+        </member>
+        <member name="F:PICOUtilityModule.Range.Range_100mV">
+            <summary>
+            Device range 100mV.
+            </summary>
+        </member>
+        <member name="F:PICOUtilityModule.Range.Range_200mV">
+            <summary>
+            Device range 200mV.
+            </summary>
+        </member>
+        <member name="F:PICOUtilityModule.Range.Range_500mV">
+            <summary>
+            Device range 500mV.
+            </summary>
+        </member>
+        <member name="F:PICOUtilityModule.Range.Range_1V">
+            <summary>
+            Device range 1V.
+            </summary>
+        </member>
+        <member name="F:PICOUtilityModule.Range.Range_2V">
+            <summary>
+            Device range 2V.
+            </summary>
+        </member>
+        <member name="F:PICOUtilityModule.Range.Range_5V">
+            <summary>
+            Device range 5V.
+            </summary>
+        </member>
+        <member name="F:PICOUtilityModule.Range.Range_10V">
+            <summary>
+            Device range 10V.
+            </summary>
+        </member>
+        <member name="F:PICOUtilityModule.Range.Range_20V">
+            <summary>
+            Device range 20V.
+            </summary>
+        </member>
+        <member name="T:PICOUtilityModule.Coupling">
+            <summary>
+            Pico device coupling.
+            </summary>
+        </member>
+        <member name="F:PICOUtilityModule.Coupling.PS5000A_AC">
+            <summary>
+            Device coupling AC.
+            </summary>
+        </member>
+        <member name="F:PICOUtilityModule.Coupling.PS5000A_DC">
+            <summary>
+            Device coupling DC.
+            </summary>
+        </member>
+        <member name="T:PICOUtilityModule.Channel">
+            <summary>
+            Pico device channels.
+            </summary>
+        </member>
+        <member name="F:PICOUtilityModule.Channel.ChannelA">
+            <summary>
+            Channel A.
+            </summary>
+        </member>
+        <member name="F:PICOUtilityModule.Channel.ChannelB">
+            <summary>
+            Channel B.
+            </summary>
+        </member>
+        <member name="F:PICOUtilityModule.Channel.ChannelC">
+            <summary>
+            Channel C.
+            </summary>
+        </member>
+        <member name="F:PICOUtilityModule.Channel.ChannelD">
+            <summary>
+            Channel D.
+            </summary>
+        </member>
+        <member name="T:PICOUtilityModule.ReportedTimeUnits">
+            <summary>
+            Pico device capture time units.
+            </summary>
+        </member>
+        <member name="F:PICOUtilityModule.ReportedTimeUnits.FemtoSeconds">
+            <summary>
+            Time unit: FemtoSeconds.
+            </summary>
+        </member>
+        <member name="F:PICOUtilityModule.ReportedTimeUnits.PicoSeconds">
+            <summary>
+            Time unit: PicoSeconds.
+            </summary>
+        </member>
+        <member name="F:PICOUtilityModule.ReportedTimeUnits.NanoSeconds">
+            <summary>
+            Time unit: NanoSeconds.
+            </summary>
+        </member>
+        <member name="F:PICOUtilityModule.ReportedTimeUnits.MicroSeconds">
+            <summary>
+            Time unit: MicroSeconds.
+            </summary>
+        </member>
+        <member name="F:PICOUtilityModule.ReportedTimeUnits.MilliSeconds">
+            <summary>
+            Time unit: MilliSeconds.
+            </summary>
+        </member>
+        <member name="F:PICOUtilityModule.ReportedTimeUnits.Seconds">
+            <summary>
+            Time unit: Seconds.
+            </summary>
+        </member>
+        <member name="T:PICOUtilityModule.PicoDeviceInfo">
+            <summary>
+            PICO Device Unit Information Types.
+            </summary>
+        </member>
+        <member name="F:PICOUtilityModule.PicoDeviceInfo.PICO_DRIVER_VERSION">
+            <summary>
+            Version number of PicoScope 5000A DLL.
+            </summary>
+        </member>
+        <member name="F:PICOUtilityModule.PicoDeviceInfo.PICO_USB_VERSION">
+            <summary>
+            Type of USB connection to device: 1.1 or 2.0.
+            </summary>
+        </member>
+        <member name="F:PICOUtilityModule.PicoDeviceInfo.PICO_HARDWARE_VERSION">
+            <summary>
+            Hardware version of device.
+            </summary>
+        </member>
+        <member name="F:PICOUtilityModule.PicoDeviceInfo.PICO_VARIANT_INFO">
+            <summary>
+            Variant number of device.
+            </summary>
+        </member>
+        <member name="F:PICOUtilityModule.PicoDeviceInfo.PICO_BATCH_AND_SERIAL">
+            <summary>
+            Batch and serial number of device.
+            </summary>
+        </member>
+        <member name="F:PICOUtilityModule.PicoDeviceInfo.PICO_CAL_DATE">
+            <summary>
+            Calibration date of device.
+            </summary>
+        </member>
+        <member name="F:PICOUtilityModule.PicoDeviceInfo.PICO_KERNEL_VERSION">
+            <summary>
+            Version of kernel driver.
+            </summary>
+        </member>
+        <member name="F:PICOUtilityModule.PicoDeviceInfo.PICO_DIGITAL_HARDWARE_VERSION">
+            <summary>
+            Hardware version of the digital section.
+            </summary>
+        </member>
+        <member name="F:PICOUtilityModule.PicoDeviceInfo.PICO_ANALOGUE_HARDWARE_VERSION">
+            <summary>
+            Hardware version of the analogue section
+            </summary>
+        </member>
+    </members>
+</doc>
