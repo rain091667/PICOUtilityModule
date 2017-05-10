@@ -3,6 +3,9 @@
     PicoScope Device (Pico Technology) C# Module
 	
 ## PICOUtilityModule DEMO
+# Device Information
+* [Pico Technology Device] PicoScope 5000 Series 5243b
+
 <table width=100%>
   <tr>
     <th>PICO Device</th>
